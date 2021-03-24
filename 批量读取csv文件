@@ -27,3 +27,6 @@ print(dataset)
 
 # data1 = pd.read_csv("C:/Users/Administrator/Desktop/单车预测/data/数据处理1/Data/data_1.csv")
 # dataset_x = np.concatenate((data1, data2, data3, data4, data5, data6, data7, data8, data9), axis=0)
+
+
+或者可以使用with open的方式，但是没有成功，这种写法很容易理解。

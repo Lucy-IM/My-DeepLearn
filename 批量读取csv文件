@@ -28,5 +28,31 @@ print(dataset)
 # data1 = pd.read_csv("C:/Users/Administrator/Desktop/单车预测/data/数据处理1/Data/data_1.csv")
 # dataset_x = np.concatenate((data1, data2, data3, data4, data5, data6, data7, data8, data9), axis=0)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 或者可以使用with open的方式，但是没有成功，这种写法很容易理解。
+# path = "C:/Users/Administrator/Desktop/单车预测/data/数据处理1/Data" #文件夹目录
+# files= os.listdir(path) #得到文件夹下的所有文件名称
+# dataset = []
+# for file in files: #遍历文件夹
+#     position = path+'\\'+ file #构造绝对路径，"\\"，其中一个'\'为转义符
+#     print (position)
+#     with open(position, 'r') as f:    #打开文件
+#         data = csv.reader(f)   #读取文件
+#         # dataset.append(data)
+#         # print(data)     <_csv.reader object at 0x000002853929D898>   
+#         # 因为csv.reader返回的是一个迭代类型，索引用该用循环来打印信息才行
+#         for row in data:
+#             print(row)
+
+for file in files: #遍历文件夹
+    position = path+'\\'+ file #构造绝对路径，"\\"，其中一个'\'为转义符
+    print (position)
+    with open(position, 'r') as f:    #打开文件
+        data = csv.reader(f)   #读取文件
+        # dataset.append(data)
+        # print(data)     <_csv.reader object at 0x000002853929D898>
+        for row in data:
+            # print(type(row[0]))   # <class 'str'>
+            # print(type(row))   # <class 'list'>
+            print(row)  # ['2.62914966831202', '2.14604782979144']

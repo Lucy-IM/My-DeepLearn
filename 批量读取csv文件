@@ -14,6 +14,14 @@ print(type(files))  # <class 'list'>
 print(type(dataset))  # <class 'pandas.core.frame.DataFrame'>
 #%%
 for file in files:  # 遍历文件夹
+    """
+    这个把整个都数据文件夹都读进来了，如果有的不需要读，把训练集和测试集分开读取该怎么做
+    print(files[0:2])
+    print(files[4:5])
+    # print(list(set(files[0:2]) | set(files[4:5])))
+    print(set(files[0:2]).union(set(files[4:5])))  # 这两种方式都可以
+    # 可以使用list的交并差
+    """
     position = path+'\\'+ file  # 构造绝对路径，"\\"，其中一个'\'为转义符
     data = pd.read_csv(position)
     # print (position)

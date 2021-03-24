@@ -1,0 +1,29 @@
+import os
+import pandas as pd
+import csv
+from matplotlib import pyplot as plt
+from matplotlib.pylab import mpl
+
+# mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体
+# mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+
+path = "C:/Users/Administrator/Desktop/单车预测/data/数据处理1/Data" #文件夹目录
+files = os.listdir(path)  # 得到文件夹下的所有文件名称
+dataset = pd.DataFrame()
+print(type(files))  # <class 'list'>
+print(type(dataset))  # <class 'pandas.core.frame.DataFrame'>
+#%%
+for file in files:  # 遍历文件夹
+    position = path+'\\'+ file  # 构造绝对路径，"\\"，其中一个'\'为转义符
+    data = pd.read_csv(position)
+    # print (position)
+    # filedir.append(position)
+    # dataset.append(pd.read_csv(position))   # 这个因为是datafram类型的数据进行拼接的
+    dataset = pd.concat([dataset, data], axis=0)
+# print(filedir)
+
+print(type(dataset))   # <class 'pandas.core.frame.DataFrame'>
+print(dataset)
+
+# data1 = pd.read_csv("C:/Users/Administrator/Desktop/单车预测/data/数据处理1/Data/data_1.csv")
+# dataset_x = np.concatenate((data1, data2, data3, data4, data5, data6, data7, data8, data9), axis=0)
